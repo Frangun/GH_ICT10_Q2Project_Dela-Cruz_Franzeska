@@ -1,6 +1,51 @@
 # Working with Dictionaries
 from pyscript import display, document, HTML
 
+subjects = ["sci", "math", "eng", "fil", "ss", "ict"] # lists
+units = (5, 5, 5, 3, 3, 2) # tuples
+
+def collecting_data(e):
+    document.getElementById("div2").innerHTML=""
+
+    #name
+    first_name = document.getElementById("fname").value
+    last_name = document.getElementById("lname").value
+
+    names = first_name + " " + last_name
+
+    # SUBJECT VALUES
+    science = document.getElementById('sci').value
+    math = document.getElementById('math').value
+    english = document.getElementById('eng').value
+    filipino = document.getElementById('fil').value
+    social_studies = document.getElementById('ss').value
+    ict_subj = document.getElementById('ict').value
+
+    # FORMULA
+    abg = round((float(science) + float(math) + float(english) + float(filipino) + float(social_studies) + float(ict_subj)) / 6, 2) # i want an abg and avg
+
+
+    # DISPLAY RESULT
+    message = f"""👤GWA:
+        
+        \tName   : "{names}\"
+        
+        
+        
+        \tScience: {science}
+        \tMath: {math}
+        \tEnglish: {english}
+        \tFilipino: {filipino}
+        \tSocial Studies: {social_studies}
+        \tICT: {ict_subj}
+        
+        \tFinal: {abg}
+
+        
+        """
+
+    display(message, target="div2")
+
 def acad_clubs(e):
     clubs = {
         "Math Club": {
@@ -37,4 +82,6 @@ def acad_clubs(e):
         <p><b>Club Moderator:</b> {info['Club Moderator']}</p>
         <p><b>Number of Members:</b> {info['Number of Members']}</p>
     """
+
     display(HTML(output), target="output", append=False)
+
